@@ -10,7 +10,7 @@ export const Register = () => {
     const validation = RegisterValidation()
     const formik = useFormik(validation)
     return(
-        <div className="flex items-start w-full overflow-hidden">
+        <div className="flex items-start w-full overflow-hidden h-[calc(100dvh)]">
             <div className={`hidden lg:flex w-full h-full  flex-grow self-stretch bg-[url('${carPoolImage}')] bg-cover bg-blend-overlay`}>
                 <div className="flex w-full h-full py-8 px-32 items-start bg-black bg-opacity-50">
                     <span className="text-3xl font-bold leading-9 text-white">Boleioo</span>
@@ -18,7 +18,7 @@ export const Register = () => {
             </div>
             <div className="flex w-full h-full py-4 px-8 md:px-48 lg:px-32 flex-col items-end gap-1 overflow-auto">
                 <Button variant={"outline"}>Login</Button>
-                <form className="flex flex-col justify-center items-center flex-grow self-stretch gap-1" onSubmit={formik.handleSubmit}>
+                <form className="flex flex-col justify-center items-center flex-grow self-stretch gap-3" onSubmit={formik.handleSubmit}>
                     {/* header */}
                     <div className="flex flex-col justify-center items-center gap-1">
                         <span className=" text-xl leading-7 font-bold"> Create an account</span>
@@ -58,7 +58,6 @@ export const Register = () => {
                         <Input type="file" id="identityDocument" value={formik.values.identityDocument} onChange={formik.handleChange} onBlur={formik.handleBlur} isInvalid={formik.touched.identityDocument && formik.errors.identityDocument ? true : false} hint={formik.errors.identityDocument} placeholder="Upload document(jpeg, png, pdf)" label="Identity document" />
                     </div>
                     <Button type="submit" className="self-stretch">Register</Button>
-
                 </form>
             </div>
         </div>

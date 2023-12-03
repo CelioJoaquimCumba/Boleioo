@@ -8,7 +8,7 @@ export const Login = () => {
     const validation = LoginValidation()
     const formik = useFormik(validation)
     return(
-        <div className="flex items-start w-full overflow-hidden">
+        <div className="flex items-start w-full overflow-hidden h-[calc(100dvh)]">
             <div className={`hidden lg:flex w-full h-full  flex-grow self-stretch bg-[url('${carPoolImage}')] bg-cover bg-blend-overlay`}>
                 <div className="flex w-full h-full py-8 px-32 items-start bg-black bg-opacity-50">
                     <span className="text-3xl font-bold leading-9 text-white">Boleioo</span>
