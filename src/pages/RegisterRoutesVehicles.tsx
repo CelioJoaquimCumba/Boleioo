@@ -1,3 +1,4 @@
+import { RouteDialog } from "@/components/molecules/RouteDialog";
 import { OwnedRoutes } from "@/components/organisms/OwnedRoutes";
 import { OwnedVehicles } from "@/components/organisms/OwnedVehicles";
 import { Button } from "@/components/ui/button";
@@ -19,10 +20,7 @@ export const RegisterRoutesVehicles = () => {
             </div>
             <div className="flex flex-col items-start gap-4 self-stretch">
                 <OwnedRoutes routes={[{id:"1", origin:{place:"Lagos", time:"5:00pm"}, destination:{place:"Abuja", time:"6:00pm"}, frequency:"Everyday"}, {id:"2", origin:{place:"Lagos", time:"5:00pm"}, destination:{place:"Abuja", time:"6:00pm"}, frequency:"Everyday"}, {id:"3", origin:{place:"Lagos", time:"5:00pm"}, destination:{place:"Abuja", time:"6:00pm"}, frequency:"Everyday"}]} />
-                <Button className="gap-2">
-                    <Plus />
-                    <span>Add Route</span>
-                </Button>
+                <RouteDialog/>
             </div>
             {/* Vehicles */}
             <div className="flex flex-col items-start gap-4 self-stretch">
