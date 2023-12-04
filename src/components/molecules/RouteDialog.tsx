@@ -11,8 +11,11 @@ import {
 import { Label } from "@/components/ui/label"
 import { Plus } from "lucide-react"
 import { Input } from "../atoms/Input"
+import { useFormik } from "formik"
+import { RouteValidation } from "@/form validations/RouteValidation"
 
 export const RouteDialog = () => {
+  const formik = useFormik(RouteValidation())
   return (
     <Dialog>
       <DialogTrigger asChild>
@@ -21,68 +24,86 @@ export const RouteDialog = () => {
             <span>Add Route</span>
         </Button>
       </DialogTrigger>
-      <DialogContent className="max-w-3xl overflow-y-scroll overflow-x-hidden sm:h-5/6">
+      <DialogContent className="max-w-xl overflow-y-auto overflow-x-hidden h-5/6 sm:h-5/6">
         <DialogHeader>
           <DialogTitle>Add/Edit Route</DialogTitle>
           <DialogDescription>
             Make changes to your route here. Click save when you're done.
           </DialogDescription>
         </DialogHeader>
-        <div className="flex flex-col justify-start gap-4 py-4">
-          <div className="flex items-center gap-4">
-            <Label htmlFor="name" className="text-right">
-              Name
-            </Label>
-            <Input
-              placeholder="Route name"
-              id="name"
-              className="col-span-3"
-            />
-          </div>
-          <div className="flex flex-col sm:flex-row gap-4">
-            {/* start */}
-            <div className="flex flex-col items-start gap-4 flex-grow">
-                {/* start time */}
-                <div className="flex items-start gap-4 self-stretch ">
-                    <Label htmlFor="startTime">
-                    Start Time
-                    </Label>
-                    <Input
-                    placeholder="Insert the time that you go"
-                    id="startTime"
-                    className="col-span-3"
-                    />
-                </div>
-                {/* start location */}
-                <div className="flex flex-col items-start gap-4 self-stretch">
-                    <Input label="Start Location" placeholder="Location name"/>
-                    <img src="https://k8q3f6p8.rocketcdn.me/wp-content/uploads/2019/05/Google-Maps-Tips.png" alt="map" className=" max-full aspect-square bg-gray-500 rounded-md object-cover"/>
-                </div>
+        <form onSubmit={formik.handleSubmit}>
+          <div className="flex flex-col justify-start gap-4 py-4">
+            <div className="flex items-center gap-4">
+              <Label htmlFor="routeName" className="text-right">
+                Name
+              </Label>
+              <Input
+                placeholder="Route name"
+                id="routeName"
+                value={formik.values.name}
+                onChange={formik.handleChange}
+                onBlur={formik.handleBlur}
+                isInvalid={formik.touched.name && formik.errors.name ? true : false}
+                hint={formik.errors.name}
+              />
             </div>
-            {/* end */}
-            <div className="flex flex-col items-start gap-4 flex-grow">
-                {/* start time */}
-                <div className="flex items-start gap-4 self-stretch ">
-                    <Label htmlFor="startTime">
-                    Start Time
-                    </Label>
-                    <Input
-                    placeholder="Insert the time that you go"
-                    id="startTime"
-                    className="col-span-3"
-                    />
-                </div>
-                {/* start location */}
-                <div className="flex flex-col items-start gap-4 self-stretch">
-                    <Input label="Start Location" placeholder="Location name"/>
-                    <img src="https://k8q3f6p8.rocketcdn.me/wp-content/uploads/2019/05/Google-Maps-Tips.png" alt="map" className="max-full aspect-square bg-gray-500 rounded-md object-cover"/>
-                </div>
+            <div className="flex flex-col  gap-4">
+              {/* start */}
+              <div className="flex flex-col items-start gap-4 flex-grow w-full self-stretch">
+                  {/* start time */}
+                  <div className="flex items-start gap-4 self-stretch ">
+                      <Label htmlFor="startTime">
+                      Start Time
+                      </Label>
+                      <Input
+                      placeholder="Insert the time that you go"
+                      id="startTime"
+                      value={formik.values.startTime}
+                      onChange={formik.handleChange}
+                      onBlur={formik.handleBlur}
+                      isInvalid={formik.touched.startTime && formik.errors.startTime ? true : false}
+                      hint={formik.errors.startTime}
+                      />
+                  </div>
+                  {/* start location */}
+                  <div className="flex flex-col items-start gap-4 self-stretch">
+                      <Input label="Start Location" placeholder="Location name" id="startLocation" value={formik.values.startLocation} onChange={formik.handleChange} onBlur={formik.handleBlur} isInvalid={formik.touched.startLocation && formik.errors.startLocation ? true : false}/>
+                      {/* <div className="sm:max-w-xs w-80 h-80 aspect-square rounded-md">
+                        <MapComponent/>
+                      </div> */}
+                  </div>
+              </div>
+              {/* end */}
+              <div className="flex flex-col items-start gap-4 flex-grow w-full self-stretch">
+                  {/* end time */}
+                  <div className="flex items-start gap-4 self-stretch ">
+                      <Label htmlFor="endTime">
+                      Start Time
+                      </Label>
+                      <Input
+                      placeholder="Insert the time that you go"
+                      id="endTime"
+                      value={formik.values.endTime}
+                      onChange={formik.handleChange}
+                      onBlur={formik.handleBlur}
+                      isInvalid={formik.touched.endTime && formik.errors.endTime ? true : false}
+                      hint={formik.errors.endTime}
+                      />
+                  </div>
+                  {/* end location */}
+                  <div className="flex flex-col items-start gap-4 self-stretch">
+                      <Input label="End Location" placeholder="Location name" id="endLocation" value={formik.values.endLocation} onChange={formik.handleChange} onBlur={formik.handleBlur} isInvalid={formik.touched.endLocation && formik.errors.endLocation ? true : false} hint={formik.errors.endLocation}/>
+                      {/* <div className="sm:max-w-xs w-80 h-80 aspect-square rounded-md">
+                        <MapComponent/>
+                      </div> */}
+                  </div>
+              </div>
             </div>
           </div>
-        </div>
-        <DialogFooter>
-          <Button type="submit">Save changes</Button>
-        </DialogFooter>
+          <DialogFooter>
+            <Button type="submit">Save changes</Button>
+          </DialogFooter>
+        </form>
       </DialogContent>
     </Dialog>
   )

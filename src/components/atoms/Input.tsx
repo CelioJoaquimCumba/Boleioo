@@ -12,13 +12,15 @@ export type InputProps = React.InputHTMLAttributes<HTMLInputElement> & {
     hint?:string
 }
 
-export const Input = ({label, button,isInvalid, hint, ...props}: InputProps) => (
-    <div className="flex flex-col items-start gap-2 self-stretch w-full">
-        {label && <Label htmlFor={props.id}>{label}</Label>}
-        <div className="flex self-stretch items-center gap-2 ">
-            <RootInput className={`${isInvalid && "border border-destructive"}`} {...props} />
-            {button && <Button>{button.value}</Button>}
+export const Input = ({label, button,isInvalid, hint, ...props}: InputProps) => {
+    return(
+        <div className="flex flex-col items-start gap-2 self-stretch w-full">
+            {label && <Label htmlFor={props.id}>{label}</Label>}
+            <div className="flex self-stretch items-center gap-2 ">
+                <RootInput className={`${isInvalid && "border border-destructive"}`} {...props} />
+                {button && <Button>{button.value}</Button>}
+            </div>
+            {hint && isInvalid && <p className="text-destructive text-xs italic">{hint}</p>}
         </div>
-        {hint && isInvalid && <p className="text-destructive text-xs italic">{hint}</p>}
-    </div>
-)
+    )
+}
