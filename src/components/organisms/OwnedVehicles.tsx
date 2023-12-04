@@ -16,7 +16,7 @@ export const OwnedVehicles = ({vehicles}: OwnedVehiclesProps) => {
                     <VehicleCard key={vehicle.id} {...vehicle} />
                 ))}
             </div>
-            <Table className="hidden md:table">
+            <Table className="hidden md:table max-w-6xl">
                     <TableHeader>
                         <TableRow>
                         <TableHead >Make</TableHead>

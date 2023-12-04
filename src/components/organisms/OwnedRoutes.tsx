@@ -16,12 +16,12 @@ export const OwnedRoutes = ({routes}: OwnedRoutesProps) => {
                     <RouteCard key={route.id} {...route} />
                 ))}
             </div>
-            <Table className="hidden md:table">
+            <Table className="hidden md:table max-w-6xl">
                 <TableHeader>
                     <TableRow>
                     <TableHead >Start Location</TableHead>
-                    <TableHead>Start Time</TableHead>
-                    <TableHead>EndLocation</TableHead>
+                    <TableHead >Start Time</TableHead>
+                    <TableHead >EndLocation</TableHead>
                     <TableHead >EndTime</TableHead>
                     <TableHead >Frequency</TableHead>
                     <TableHead >End of cycle</TableHead>
