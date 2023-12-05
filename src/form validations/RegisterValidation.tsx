@@ -1,3 +1,5 @@
+// import { ToastAction } from '@/components/ui/toast';
+import { toast } from '@/components/ui/use-toast';
 import * as Yup from 'yup';
 
 export const RegisterValidation = () => {
@@ -64,7 +66,13 @@ export const RegisterValidation = () => {
     }),
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     onSubmit: () => {
-      alert('Submitted');
-    }
-  };
+      toast({
+        title: "Registration Completed",
+        description: "Your vehicle has been saved",
+        // action: (
+        //   <ToastAction altText="Cancel the vehicle saving">Undo</ToastAction>
+        // ),
+      })
+    },
+  }
 };

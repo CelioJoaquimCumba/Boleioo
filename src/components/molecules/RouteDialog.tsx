@@ -40,11 +40,11 @@ export const RouteDialog = () => {
               <Input
                 placeholder="Route name"
                 id="routeName"
-                value={formik.values.name}
+                value={formik.values.routeName}
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur}
-                isInvalid={formik.touched.name && formik.errors.name ? true : false}
-                hint={formik.errors.name}
+                isInvalid={formik.touched.routeName && formik.errors.routeName ? true : false}
+                hint={formik.errors.routeName}
               />
             </div>
             <div className="flex flex-col  gap-4">
