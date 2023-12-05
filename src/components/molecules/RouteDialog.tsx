@@ -58,6 +58,7 @@ export const RouteDialog = () => {
                       <Input
                       placeholder="Insert the time that you go"
                       id="startTime"
+                      type="time"
                       value={formik.values.startTime}
                       onChange={formik.handleChange}
                       onBlur={formik.handleBlur}
@@ -83,6 +84,7 @@ export const RouteDialog = () => {
                       <Input
                       placeholder="Insert the time that you go"
                       id="endTime"
+                      type="time"
                       value={formik.values.endTime}
                       onChange={formik.handleChange}
                       onBlur={formik.handleBlur}
