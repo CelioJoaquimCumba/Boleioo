@@ -9,7 +9,7 @@ export type InputProps = React.InputHTMLAttributes<HTMLInputElement> & {
         onClick: () => void
     }
     isInvalid?: boolean
-    hint?:string
+    hint?:string|undefined
 }
 
 export const Input = ({label, button,isInvalid, hint, ...props}: InputProps) => {

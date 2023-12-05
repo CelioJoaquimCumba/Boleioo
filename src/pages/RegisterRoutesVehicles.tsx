@@ -1,9 +1,9 @@
 import { RouteDialog } from "@/components/molecules/RouteDialog";
+import { VehicleDialog } from "@/components/molecules/VehicleDialog";
 import { OwnedRoutes } from "@/components/organisms/OwnedRoutes";
 import { OwnedVehicles } from "@/components/organisms/OwnedVehicles";
 import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
-import { Plus } from "lucide-react";
 import { useState } from "react";
 
 export const RegisterRoutesVehicles = () => {
@@ -38,10 +38,7 @@ export const RegisterRoutesVehicles = () => {
             </div>
             <div className={`${ checked ? "flex" : "hidden"} flex-col items-start gap-2 self-stretch`}>
                 <OwnedVehicles vehicles={[{id:"1", make:"Toyota", model:"Corolla", plate:"AAA 000 MC", color:"Black", cylinders:2000, seats:5, year:2020}, {id:"2", make:"Toyota", model:"Corolla", plate:"AAA 000 MC", color:"Black", cylinders:2000, seats:5, year:2020}]} />
-                <Button className="gap-2">
-                    <Plus />
-                    <span>Add Vehicle</span>
-                </Button>
+                <VehicleDialog/>
             </div>
             <Button>Save Changes</Button>
         </div>
