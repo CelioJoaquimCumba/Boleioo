@@ -1,7 +1,8 @@
 import * as Yup from 'yup';
 
 export const VehicleValidation = () => {
-  const mozambiquePlateRegex = /^[A-Z]{3} \d{3} [A-Z]{2}$/;
+  const mozambiquePlateRegex = /^[A-Za-z]{3} \d{3} [A-Za-z]{2}$/;
+
 
   return {
     initialValues: {

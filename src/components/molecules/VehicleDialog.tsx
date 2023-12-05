@@ -1,3 +1,4 @@
+import React, { useState } from 'react';
 import { Button } from "@/components/ui/button";
 import {
   Dialog,
@@ -16,9 +17,31 @@ import { SelectInput } from "../atoms/SelectInput";
 
 export const VehicleDialog = () => {
   const formik = useFormik(VehicleValidation());
+  const [availableModels, setAvailableModels] = useState<Array<string>>([]);
+
+  const makeModels:Array<{make: string, models: Array<string>}> = [
+    {
+      make: "Toyota",
+      models: ["auris", "vitz", "corolla"],
+    },
+    {
+      make: "Honda",
+      models: ["civic", "accord", "cr-v"],
+    },
+    {
+      make: "Ford",
+      models: ["fiesta", "mustang", "explorer"],
+    },
+  ];
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const handleChange = (field: string, value:any) => {
+  const handleChange = (field: string, value: any) => {
+    if (field === 'make') {
+      const selectedMake: string = value;
+      // Set available models based on the selected make
+      setAvailableModels(makeModels.find((make) => make.make === selectedMake)?.models || []);
+    }
+
     formik.setValues({
       ...formik.values,
       [field]: value,
@@ -45,16 +68,16 @@ export const VehicleDialog = () => {
             {/* SelectInput for "make" */}
             <SelectInput
               value={formik.values.make}
-              onChange={(e)=>handleChange("make", e)}
+              onChange={(e) => handleChange("make", e)}
               onBlur={formik.handleBlur}
-              isInvalid={formik.touched.make && formik.errors.make? true : false}
+              isInvalid={formik.touched.make && formik.errors.make ? true : false}
               hint={formik.errors.make}
               id="make"
               label="Make"
-              values={["Toyota", "Honda", "Ford"]} // Add your make options
+              values={makeModels.map((make) => make.make)} // Add your make options
             />
 
-            {/* Input for "model" */}
+            {/* SelectInput for "model" */}
             <SelectInput
               value={formik.values.model}
               onChange={(e) => handleChange("model", e)}
@@ -63,9 +86,10 @@ export const VehicleDialog = () => {
               hint={formik.errors.model}
               id="model"
               label="Model"
-              values={["auris", "vitz", "corolla"]}
+              values={availableModels}
             />
 
+            {/* Input for "color" */}
             <SelectInput
               value={formik.values.color}
               onChange={(e) => handleChange("color", e)}
@@ -76,8 +100,8 @@ export const VehicleDialog = () => {
               label="Color"
               values={["blue", "red", "black", "gray", "white"]}
             />
-
-            {/* Input for "year" */}
+            
+             {/* Input for "year" */}
             <Input
               id="year"
               value={formik.values.year}
@@ -128,6 +152,7 @@ export const VehicleDialog = () => {
               type="number"
               min={0}
             />
+
           </div>
           <DialogFooter>
             <Button type="submit">Save changes</Button>
