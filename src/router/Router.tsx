@@ -5,12 +5,16 @@ import { RegisterRoutesVehicles as RouteVehiclePath, Login as LoginPath, Registe
 import { RegisterRoutesVehicles } from '@/pages/RegisterRoutesVehicles';
 import { Login } from '@/pages/Login';
 import { Register } from '@/pages/Register';
+import { Home } from '@/pages/Home';
 
 const router = createBrowserRouter([
   {
     path: '/',
-    element:<>home</>,
     children: [
+      {
+        path: '',
+        element: <Home/>
+      },
       {
         path: LoginPath,
         element: <><ScrollRestoration/><Login /></>
