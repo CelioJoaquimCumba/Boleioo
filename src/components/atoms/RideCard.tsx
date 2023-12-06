@@ -36,7 +36,7 @@ export const RideCard = ({
   }
 
   return (
-    <Card className="flex p-4 shadow-md self-stretch ">
+    <Card className="flex shadow-md self-stretch ">
       <CardHeader className="flex flex-col gap-4 items-center">
         <Avatar className={`ring-2 ${ringColorStyle} ring-offset-2  w-16 h-16`}>
           <AvatarImage src={avatar} alt={driverName} />
