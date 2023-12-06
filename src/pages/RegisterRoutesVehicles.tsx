@@ -4,8 +4,6 @@ import { OwnedRoutes } from "@/components/organisms/OwnedRoutes";
 import { OwnedVehicles } from "@/components/organisms/OwnedVehicles";
 import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
-import { ToastAction } from "@/components/ui/toast";
-import { toast } from "@/components/ui/use-toast";
 import { useState } from "react";
 
 export const RegisterRoutesVehicles = () => {
@@ -14,7 +12,7 @@ export const RegisterRoutesVehicles = () => {
         setChecked(!checked)
     }
     return (
-        <div className="flex py-10 px-8 flex-col items-end gap-4 text-start self-stretch w-full">
+        <div className="flex py-10 px-8 md:px-16 md:py-8 lg:py-16 lg:pl-24 lg:pr-64 flex-col items-end gap-4 text-start self-stretch w-full">
             {/* Routes */}
             <div className="flex flex-col items-start gap-4 self-stretch">
                 <span className="text-xl leading-7 font-bold">Routes</span>
@@ -43,20 +41,6 @@ export const RegisterRoutesVehicles = () => {
                 <VehicleDialog/>
             </div>
             <Button>Save Changes</Button>
-            <Button
-      variant="outline"
-      onClick={() => {
-        toast({
-          title: "Scheduled: Catch up ",
-          description: "Friday, February 10, 2023 at 5:57 PM",
-          action: (
-            <ToastAction altText="Goto schedule to undo">Undo</ToastAction>
-          ),
-        })
-      }}
-    >
-      Add to calendar
-    </Button>
         </div>
     )
 };

@@ -3,13 +3,12 @@ import { Button } from "@/components/ui/button"
 import { LoginValidation } from "@/form validations/LoginValidation"
 import {useFormik} from 'formik'
 
-const carPoolImage = "https://assets.entrepreneur.com/content/3x2/2000/20160308205658-ridesharing-car-taxis-drive.jpeg"
 export const Login = () => {
     const validation = LoginValidation()
     const formik = useFormik(validation)
     return(
         <div className="flex items-start w-full overflow-hidden h-[calc(100dvh)]">
-            <div className={`hidden lg:flex w-full h-full  flex-grow self-stretch bg-[url('${carPoolImage}')] bg-cover bg-blend-overlay`}>
+            <div className={`hidden lg:flex w-full h-full  flex-grow self-stretch bg-[url('https://imageio.forbes.com/specials-images/dam/imageserve/1161159565/960x0.jpg?height=474&width=711&fit=bounds')] bg-cover bg-right bg-blend-overlay`}>
                 <div className="flex w-full h-full py-8 px-32 items-start bg-black bg-opacity-50">
                     <span className="text-3xl font-bold leading-9 text-white">Boleioo</span>
                 </div>
