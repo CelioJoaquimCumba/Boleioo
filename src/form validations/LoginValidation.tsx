@@ -1,7 +1,8 @@
-import { toast } from '@/components/ui/use-toast';
+import { useNavigate } from 'react-router-dom';
 import * as Yup from 'yup';
 
 export const LoginValidation = () => {
+  const navigate = useNavigate()
   return ({
     initialValues: {
       email: '',
@@ -14,14 +15,6 @@ export const LoginValidation = () => {
         .required('Required'),
     }),
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    onSubmit: () => {
-      toast({
-        title: "Scheduled: Catch up ",
-        description: "Friday, February 10, 2023 at 5:57 PM",
-        // action: (
-        //   <ToastAction altText="Goto schedule to undo">Undo</ToastAction>
-        // ),
-      })
-    },
+    onSubmit: () => navigate('/'),
   })
 }

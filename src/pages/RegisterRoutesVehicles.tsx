@@ -4,10 +4,13 @@ import { OwnedRoutes } from "@/components/organisms/OwnedRoutes";
 import { OwnedVehicles } from "@/components/organisms/OwnedVehicles";
 import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
+import { Home } from "@/router/routes";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export const RegisterRoutesVehicles = () => {
     const [ checked, setChecked ] = useState(false)
+    const navigate = useNavigate()
     const handleChecked = () => {
         setChecked(!checked)
     }
@@ -40,7 +43,7 @@ export const RegisterRoutesVehicles = () => {
                 <OwnedVehicles vehicles={[{id:"1", make:"Toyota", model:"Corolla", plate:"AAA 000 MC", color:"Black", cylinders:2000, seats:5, year:2020}, {id:"2", make:"Toyota", model:"Corolla", plate:"AAA 000 MC", color:"Black", cylinders:2000, seats:5, year:2020}]} />
                 <VehicleDialog/>
             </div>
-            <Button>Save Changes</Button>
+            <Button onClick={() => navigate(Home)}>Save Changes</Button>
         </div>
     )
 };

@@ -1,8 +1,9 @@
-// import { ToastAction } from '@/components/ui/toast';
-import { toast } from '@/components/ui/use-toast';
+import { RegisterRoutesVehicles } from '@/router/routes';
+import { useNavigate } from 'react-router-dom';
 import * as Yup from 'yup';
 
 export const RegisterValidation = () => {
+  const navigate = useNavigate()
   return {
     initialValues: {
       profilePicture: '',
@@ -65,14 +66,6 @@ export const RegisterValidation = () => {
         // )
     }),
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    onSubmit: () => {
-      toast({
-        title: "Registration Completed",
-        description: "Your vehicle has been saved",
-        // action: (
-        //   <ToastAction altText="Cancel the vehicle saving">Undo</ToastAction>
-        // ),
-      })
-    },
+    onSubmit: () => navigate(RegisterRoutesVehicles),
   }
 };

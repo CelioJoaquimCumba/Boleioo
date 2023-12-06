@@ -3,11 +3,14 @@ import { Button } from "@/components/ui/button"
 import { Label } from "@/components/ui/label"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { RegisterValidation } from "@/form validations/RegisterValidation"
+import { Login } from "@/router/routes"
 import { useFormik } from "formik"
+import { useNavigate } from "react-router-dom"
 
 export const Register = () => {
     const validation = RegisterValidation()
     const formik = useFormik(validation)
+    const navigate = useNavigate()
     return(
         <div className="flex items-start w-full overflow-hidden h-[calc(100dvh)]">
             <div className={`hidden lg:flex w-full h-full  flex-grow self-stretch bg-[url('https://jugnoo.io/wp-content/uploads/2021/10/Carpool-2-1024x683.jpg')] bg-cover bg-right bg-blend-overlay`}>
@@ -16,7 +19,7 @@ export const Register = () => {
                 </div>
             </div>
             <div className="flex w-full h-full py-4 px-8 md:px-48 lg:px-32 flex-col items-end gap-1 overflow-auto">
-                <Button variant={"outline"}>Login</Button>
+                <Button variant={"outline"} onClick={()=>navigate(Login)}>Login</Button>
                 <form className="flex flex-col justify-center items-center flex-grow self-stretch gap-3" onSubmit={formik.handleSubmit}>
                     {/* header */}
                     <div className="flex flex-col justify-center items-center gap-1">

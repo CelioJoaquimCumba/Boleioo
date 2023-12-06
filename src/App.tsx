@@ -1,12 +1,13 @@
+import { RouterProvider } from 'react-router-dom'
 import './App.css'
 import { ModeToggle } from './components/ui/mode-toggle'
-import { RegisterRoutesVehicles } from './pages/RegisterRoutesVehicles'
+import { router } from './router/Router'
 
 function App() {
 
   return (
     <div className='flex h-full w-full'>
-      <RegisterRoutesVehicles/>
+      <RouterProvider router={router}/>
       <ModeToggle/>
     </div>
   )
