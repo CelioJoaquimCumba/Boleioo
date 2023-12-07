@@ -4,11 +4,11 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 
 export const Home = () => {
     return(
-        <div className="flex self-stretch pb-0 flex-col items-end w-full h-screen overflow-hidden">
+        <div className="flex self-stretch pb-16 flex-col items-end w-full h-[calc(100dvh)]  overflow-hidden">
             <NavigationMenu/>
             {/* Map */}
             <div className="flex flex-col md:flex-row-reverse w-full h-full px-4">
-                <div className="flex w-full bg-gray-200 rounded-md self-stretch h-full">
+                <div className="flex w-full bg-gray-200 rounded-md self-stretch h-full text-black">
                     Must have a map here
                 </div>
                 <div className="flex w-full p-4  flex-col items-center gap-2 h-full md:max-w-lg overflow-hidden">
