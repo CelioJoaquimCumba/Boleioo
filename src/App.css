@@ -49,18 +49,18 @@
 }
 
 ::-webkit-scrollbar-track-piece {
-    background-color: hsl(var(--foreground));
+    background-color: hsl(var(--primary-foreground));
     -webkit-border-radius: 4rem;
 }
 
 ::-webkit-scrollbar-thumb:vertical {
     height: 1rem;
-    background-color: hsl(var(--secondary));
-    -webkit-border-radius: 4rem;
+    background-color: hsl(var(--secondary-foreground));
+    -webkit-border-radius: 1rem;
 }
 
 ::-webkit-scrollbar-thumb:horizontal {
     width: 1rem;
-    background-color: #ccc;
-    -webkit-border-radius: 3px;
+    background-color: hsl(var(--secondary-foreground));
+    -webkit-border-radius: 1rem;
 }
