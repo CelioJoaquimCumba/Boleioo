@@ -1,5 +1,6 @@
 import { NavigationMenu } from "@/components/molecules/NavigationMenu"
-import { RequestsSent } from "@/components/molecules/RequestsSent"
+import { Requests } from "@/components/molecules/Requests"
+import {  Rides } from "@/components/molecules/Rides"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 
 export const Home = () => {
@@ -17,11 +18,11 @@ export const Home = () => {
                             <TabsTrigger value="rides">Available Rides</TabsTrigger>
                             <TabsTrigger value="requests">Requests Sent</TabsTrigger>
                         </TabsList>
-                        <TabsContent value="rides" className="flex w-full overflow-auto h-full">
-                            <RequestsSent/>
+                        <TabsContent value="rides" className="flex w-full overflow-auto">
+                            <Rides/>
                         </TabsContent>
-                        <TabsContent value="requests">
-                            todo
+                        <TabsContent value="requests" className="flex w-full overflow-auto overflow-x-hidden">
+                            <Requests/>
                         </TabsContent>
                     </Tabs>
                 </div>
