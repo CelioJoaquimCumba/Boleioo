@@ -36,15 +36,15 @@ export const RideCard = ({
   }
 
   return (
-    <Card className="flex shadow-md self-stretch w-full ">
-      <CardHeader className="flex flex-col gap-4 items-center">
+    <Card className="flex shadow-md self-stretch w-full p-2 gap-4 ">
+      <CardHeader className="flex flex-col gap-4 items-center p-0">
         <Avatar className={`ring-2 ${ringColorStyle} ring-offset-2  w-16 h-16`}>
           <AvatarImage src={avatar} alt={driverName} />
           <AvatarFallback>{driverName}</AvatarFallback>
         </Avatar>
         <span className="text-xs leading-4 font-normal">{match}% match</span>
       </CardHeader>
-      <CardContent className="flex flex-col items-center justify-center gap-4">
+      <CardContent className="flex flex-col items-center justify-center gap-4 p-0">
         <div className="flex items-start gap-4 self-stretch">
             <span className="text-sm leading-5 font-normal opacity-50"> Driver:</span>
             <span className="text-sm leading-5 font-normal"> {driverName} </span>

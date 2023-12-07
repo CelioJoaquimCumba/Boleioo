@@ -12,7 +12,7 @@ export const Home = () => {
                 <div className="flex w-full bg-gray-200 rounded-md self-stretch h-full text-black">
                     Must have a map here
                 </div>
-                <div className="flex w-full p-4  flex-col items-center gap-2 h-full md:max-w-lg overflow-hidden">
+                <div className="flex w-full p-4  flex-col items-center gap-2 h-full md:max-w-sm overflow-hidden">
                     <Tabs defaultValue="rides" className="flex flex-col items-center h-full overflow-auto w-full">
                         <TabsList className="flex w-min">
                             <TabsTrigger value="rides">Available Rides</TabsTrigger>
